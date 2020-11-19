@@ -1,8 +1,6 @@
 import React from "react";
 import { ProgressBar, Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
-import mapViking4 from "../mapviking4.png";
-import mapViking2 from "../mapviking2.jpg";
 import mapViking3 from "../mapviking3.png";
 
 import { GiBigWave } from "react-icons/gi";
