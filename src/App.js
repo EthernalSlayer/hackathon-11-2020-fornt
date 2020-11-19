@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Score from "./components/Score";
 import Details from "./components/Details";
+import Header from './components/Header';
 
 export default function App() {
   return (
     <Router>
       <div>
+      <Header />
         <Switch>
           <Route path="/score">
             <Score />
@@ -16,7 +18,7 @@ export default function App() {
             <Details />
           </Route>
           <Route exact path="/">
-            <Home />
+            <Home /> 
           </Route>
         </Switch>
       </div>
