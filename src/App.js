@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Score from "./components/Score";
 import Details from "./components/Details";
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Home /> 
           </Route>
         </Switch>
+      <Footer />
       </div>
     </Router>
   );

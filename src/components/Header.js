@@ -5,19 +5,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 
 const StyledHeader =styled(Container)`
-background-color:#2E282A;
-height: 100px;
+background-color:#1F7A8C;
 `
 
+const StyledTitle = styled(Col)`
+font-size:40px;
+color:white;
+font-family:skranji;
+`
 
+const StyleImg = styled.img`
+    margin-top: 10px;
+    margin-bottom: 10px;
+`
 
 
 const Header = () => {
      return (
         <StyledHeader fluid>
-            <Row>
-                <Col sm={3}><img src={logo} alt="Logo" width={100} /></Col>
-                <Col sm={9}>Volva</Col>
+            <Row className="align-items-center">
+                <Col md={5} xs={4}><StyleImg src={logo} alt="Logo" width={80} /></Col>
+                <Col md={7} xs={8}><StyledTitle>Volva</StyledTitle></Col>
             </Row>
             
         </StyledHeader>
