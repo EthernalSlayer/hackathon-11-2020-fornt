@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Score from "./components/Score";
 import Details from "./components/Details";
 
+
 export default function App() {
   return (
     <Router>
