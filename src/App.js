@@ -7,20 +7,14 @@ import Details from "./components/Details";
 
 export default function App() {
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/score">
-            <Score />
-          </Route>
-          <Route path="/details">
-            <Details />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <>
+    <div className="bg"></div>
+    <div className="lightning flashit"></div>
+    
+    
+    <div id="logo">
+    <h1>VOLVA</h1>
+    </div>
+    </>
   );
 }
