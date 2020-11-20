@@ -38,7 +38,7 @@ const Score = () => {
           <div
             style={{
               backgroundColor: "#1f7a8c",
-              border: `5px ${danger} solid`,
+              border: `5px ${warning} solid`,
               width: "15em",
               height: "15em",
               borderRadius: "50%",
@@ -73,8 +73,7 @@ const Score = () => {
           <FaWind
             style={{
               fontSize: "10vh",
-              color: danger,
-              marginLeft: "4%",
+              color: warning,
             }}
           />
         </Col>
@@ -82,7 +81,7 @@ const Score = () => {
           <WiDayCloudy
             style={{
               fontSize: "14vh",
-              color: danger,
+              color: warning,
             }}
           />
         </Col>
@@ -90,8 +89,7 @@ const Score = () => {
           <GiBigWave
             style={{
               fontSize: "10vh",
-              color: danger,
-              marginLeft: "10%",
+              color: warning,
             }}
           />
         </Col>
