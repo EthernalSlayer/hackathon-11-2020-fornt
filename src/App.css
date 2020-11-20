@@ -19,8 +19,74 @@
   flex-shrink: 1;
   flex-basis: auto;
   order: 0;
+}*/
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
+.bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:url('./components/14.jpg');
+  background-position: center center;
+  background-origin: content-box;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -2;
+}
+
+.lightning{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./components/14.jpg');
+  background-position: center center;
+  background-origin: content-box;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-filter: brightness(3);
+  filter: brightness(3);
+  -o-filter: brightness(3);
+  -moz-filter: brightness(3);
+  z-index: -1;
+}
+
+.flashit{
+  -webkit-animation: flash ease-out 2s infinite;
+  -moz-animation: flash ease-out 2s infinite;
+  animation: flash ease-out 2s infinite;
+  animation-delay: 2s;
+  }
+
+  @-webkit-keyframes flash {
+    from { opacity: 0; } 
+    92% { opacity: 0; }
+    93% { opacity: 0.6; }
+    94% { opacity: 0.2; }
+    96% { opacity: 0.9; } 
+    to { opacity: 0; }
+  }
+  
+  @keyframes flash {
+    from { opacity: 0; } 
+      92% { opacity: 0; }
+    93% { opacity: 0.6; }
+      94% { opacity: 0.2; }
+      96% { opacity: 1; } 
+    to { opacity: 0; }
+  }
+/*
 .instruction {
   font-family: "Skranji", cursive;
   font-size: 1.5em;
@@ -31,5 +97,4 @@
   padding: 0%;
   color: #d7dedc;
 } */
-
 
