@@ -26,7 +26,7 @@ const Home = () => {
       prev = e.target.value;
     });
   }
-  
+
   return (
     <div> 
       <NewContainer >

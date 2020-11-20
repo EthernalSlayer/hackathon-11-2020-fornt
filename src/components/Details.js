@@ -38,17 +38,17 @@ const Details = () => {
   const [swell, setSwell] = useState("");
   const [windSpeed, setWindSpeed] = useState("");
   const [cloudCoverage, setCloudCoverage] = useState("");
-  const lat = 58.7984;
-  const lng = 17.8081;
+  const lat = 30.7984;
+  const lng = 20.8081;
   const params = "waveHeight,swellHeight,windSpeed,cloudCover";
 
-  /*useEffect(() => {
+  useEffect(() => {
     fetch(
       `https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`,
       {
         headers: {
           Authorization:
-            "aa7e9ff4-2a53-11eb-8ea5-0242ac130002-aa7ea06c-2a53-11eb-8ea5-0242ac130002",
+            "7a50d3cc-2a64-11eb-a5a9-0242ac130002-7a50d49e-2a64-11eb-a5a9-0242ac130002",
         },
       }
     )
@@ -89,7 +89,7 @@ const Details = () => {
         setCloudCoverage((prev) => (prev = data.cloudCover.sg));
       })
       .catch((err) => console.log(err));
-  }, []);*/
+  }, []);
 
   return (
     <NewContainer fluid>
@@ -118,7 +118,11 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={30} />
+          <ProgressBar
+            variant="info"
+            style={{ marginTop: "5px" }}
+            now={waveHeight}
+          />
         </Col>
       </Row>
       <Row>
@@ -128,7 +132,11 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={70} />
+          <ProgressBar
+            variant="info"
+            style={{ marginTop: "5px" }}
+            now={swell}
+          />
         </Col>
       </Row>
       <Row>
@@ -138,7 +146,11 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={100} />
+          <ProgressBar
+            variant="info"
+            style={{ marginTop: "5px" }}
+            now={windSpeed}
+          />
         </Col>
       </Row>
       <Row>
@@ -148,7 +160,11 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={30} />
+          <ProgressBar
+            variant="info"
+            style={{ marginTop: "5px" }}
+            now={cloudCoverage}
+          />
         </Col>
       </Row>
       <Row>
