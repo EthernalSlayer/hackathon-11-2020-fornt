@@ -3,15 +3,17 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Score from "./components/Score";
 import Details from "./components/Details";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import TestApi from "./components/TestApi";
 
 export default function App() {
   return (
     <Router>
       <div>
         <Switch>
+          <Route path="/api">
+            <TestApi />
+          </Route>
           <Route path="/score">
             <Score />
           </Route>
