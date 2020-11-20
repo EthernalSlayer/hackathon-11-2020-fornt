@@ -13,14 +13,13 @@ const Home = () => {
       <Container>
         <Row className="justify-content-md-center">
           <Form.Group>
-          <Form.Row>
-              <Form.Label column="sm" lg={2}>
-                Date
+            <Form.Row>
+              <Form.Label column htmlFor="Departure">
+              Departure
               </Form.Label>
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-              />
+              <Col xs="auto">
+              <CityList />
+              </Col>
             </Form.Row>
             <Form.Row>
               <Form.Label column htmlFor="arrival">
@@ -32,14 +31,15 @@ const Home = () => {
             </Form.Row>
             <br />
             <Form.Row>
-              <Form.Label column htmlFor="Departure">
-              Departure
+              <Form.Label column="sm" lg={2}>
+                Date
               </Form.Label>
-              <Col xs="auto">
-              <CityList />
-              </Col>
-              <Button variant="dark">Valider</Button>
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+              />
             </Form.Row>
+            <Button variant="dark">Valider</Button>
           </Form.Group>
         </Row>
       </Container>
