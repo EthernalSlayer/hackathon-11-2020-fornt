@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ProgressBar, Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import mapViking3 from "../mapviking3.png";
@@ -32,6 +32,63 @@ const Title = styled.h1`
 `;
 
 const Details = () => {
+  const [waveHeight, setWaveHeight] = useState("");
+  const [swell, setSwell] = useState("");
+  const [windSpeed, setWindSpeed] = useState("");
+  const [cloudCoverage, setCloudCoverage] = useState("");
+  const lat = 58.7984;
+  const lng = 17.8081;
+  const params = "waveHeight,swellHeight,windSpeed,cloudCover";
+
+  useEffect(() => {
+    fetch(
+      `https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`,
+      {
+        headers: {
+          Authorization:
+            "aa7e9ff4-2a53-11eb-8ea5-0242ac130002-aa7ea06c-2a53-11eb-8ea5-0242ac130002",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((jsonData) => {
+        let hours = Object.entries(jsonData)[0];
+        return hours;
+      })
+      .then((hours) => hours[1][0])
+      .then((data) => {
+        if (data.waveHeight.sg < 10) {
+          setWaveHeight((prev) => (prev = 30));
+        }
+        if (data.waveHeight.sg > 10 && data.waveHeight.sg < 20) {
+          setWaveHeight((prev) => (prev = 70));
+        }
+        if (data.waveHeight.sg > 20) {
+          setWaveHeight((prev) => (prev = 100));
+        }
+        if (data.swellHeight.sg < 5) {
+          setSwell((prev) => (prev = 30));
+        }
+        if (data.swellHeight.sg > 5 && data.waveHeight.sg < 10) {
+          setSwell((prev) => (prev = 70));
+        }
+        if (data.swellHeight.sg > 10) {
+          setSwell((prev) => (prev = 100));
+        }
+        if (data.windSpeed.sg < 20) {
+          setWindSpeed((prev) => (prev = 30));
+        }
+        if (data.windSpeed.sg > 20 && data.waveHeight.sg < 50) {
+          setWindSpeed((prev) => (prev = 70));
+        }
+        if (data.windSpeed.sg > 50) {
+          setWindSpeed((prev) => (prev = 100));
+        }
+        setCloudCoverage((prev) => (prev = data.cloudCover.sg));
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <NewContainer>
       <Row className="justify-content-center">
@@ -53,7 +110,15 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={60} />
+          {waveHeight > 20 ? (
+            <ProgressBar
+              variant="info"
+              style={{ marginTop: "5px" }}
+              now={waveHeight}
+            />
+          ) : (
+            <p>Loading...</p>
+          )}
         </Col>
       </Row>
       <Row>
@@ -73,7 +138,11 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={20} />
+          <ProgressBar
+            variant="info"
+            style={{ marginTop: "5px" }}
+            now={windSpeed}
+          />
         </Col>
       </Row>
       <Row>
@@ -83,7 +152,11 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={20} />
+          <ProgressBar
+            variant="info"
+            style={{ marginTop: "5px" }}
+            now={cloudCoverage}
+          />
         </Col>
       </Row>
       <Row>
