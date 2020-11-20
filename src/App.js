@@ -3,13 +3,16 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Score from "./components/Score";
 import Details from "./components/Details";
-import "bootstrap/dist/css/bootstrap.min.css";
 import TestApi from "./components/TestApi";
+import Header from './components/Header';
+import Footer from './components/Footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   return (
     <Router>
       <div>
+      <Header />
         <Switch>
           <Route path="/api">
             <TestApi />
@@ -21,9 +24,10 @@ export default function App() {
             <Details />
           </Route>
           <Route exact path="/">
-            <Home />
+            <Home /> 
           </Route>
         </Switch>
+      <Footer />
       </div>
     </Router>
   );
