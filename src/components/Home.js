@@ -8,7 +8,7 @@ import styled from "styled-components";
 import mapViking3 from "../mapviking3.png";
 
 const NewContainer = styled(Container)`
-  background-image: linear-gradient(rgba(0, 26, 26, 0.9), rgba(0, 26, 26, 0.8)),color:
+  background-image: linear-gradient(rgba(0, 26, 26, 0.9), rgba(0, 26, 26, 0.8)),
     url(${mapViking3});
 `;
 const Home = () => {
