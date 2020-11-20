@@ -5,6 +5,7 @@ import Score from "./components/Score";
 import Details from "./components/Details";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Entry from "./components/Entry";
 
 export default function App() {
   return (
@@ -12,13 +13,16 @@ export default function App() {
       <div>
       <Header />
         <Switch>
+          <Route exact path="/">
+            <Entry />
+          </Route>
           <Route path="/score">
             <Score />
           </Route>
           <Route path="/details">
             <Details />
           </Route>
-          <Route exact path="/">
+          <Route path="/home">
             <Home /> 
           </Route>
         </Switch>
