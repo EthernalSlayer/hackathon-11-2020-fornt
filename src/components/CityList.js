@@ -10,19 +10,19 @@ class CityList extends Component {
   render() {
     return (
       <div className="autocomplete-wrapper">
-              <Autocomplete
+        <Autocomplete
           value={this.state.val}
           items={Port()}
           getItemValue={item => item.name}
           shouldItemRender={renderCityName}
           renderMenu={item => (
-            <div className="dropdown">
+            <div key={item.name} className="dropdown">
               {item}
             </div>
           )}
           renderItem={(item, isHighlighted) =>
-            <div className={`item ${isHighlighted ? 'selected-item' : ''}`}>
-              {item.name}
+            <div className={`item ${isHighlighted ? 'selected-item' : ''}`} key={item.name}>
+              {item.name} 
             </div>
           }
           onChange={(event, val) => this.setState({ val })}

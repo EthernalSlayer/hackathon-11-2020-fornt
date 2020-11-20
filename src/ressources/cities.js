@@ -21,28 +21,11 @@ const cities = [
   },
   {
     country: "Iceland",
-    name: "Torshavn",
-    lat: 		64.133333,
-    lng: -21.933333,
-  },
-  {
-    country: "Iceland",
     name: "Vopnafjordur",
     lat: 		65.14610,
     lng: 14.4946159,
   },
-  {
-    country: "England",
-    name: "Vopnafjordur",
-    lat: 		41.958446,
-    lng: -70.667262,
-  },
-  {
-    country: "England",
-    name: "Falmouth",
-    lat: 		50.152571,
-    lng: -5.06627,
-  },
+
   {
     country: "England",
     name: "Falmouth",
@@ -78,13 +61,6 @@ const cities = [
     name: "Edimbourg",
     lat: 			55.916270,
     lng: -3.218940,
-  },
-
-  {
-    country: "Ireland",
-    name: "Edimbourg",
-    lat: 			53.349805,
-    lng: 	-6.260310,
   },
   {
     country: "Ireland",
