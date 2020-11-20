@@ -8,9 +8,24 @@ import styled from "styled-components";
 import mapViking3 from "../mapviking3.png";
 
 const NewContainer = styled(Container)`
-  background-image: linear-gradient(rgba(0, 26, 26, 0.9), rgba(0, 26, 26, 0.8)),color:
+  background-image: linear-gradient(rgba(0, 26, 26, 0.9), rgba(0, 26, 26, 0.8)),
     url(${mapViking3});
+  height: 90vh;
 `;
+
+const Primarystyle = styled(Form.Label)`
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+`;
+
+const Title = styled.h1`
+  font-family: Skranji;
+  color: #cd5334;
+  text-shadow: 1px 1px 2px white;
+  margin: 20px;
+`;
+
 const Home = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [arrival, setArrival] = useState();
@@ -28,14 +43,17 @@ const Home = () => {
   }
 
   return (
-    <div> 
-      <NewContainer >
-        <Row className="justify-content-md-center  ml-4">
+    <div>
+      <NewContainer>
+        <Row className="justify-content-center">
+          <Title>HOME</Title>
+        </Row>
+        <Row className="justify-content-md-center text-center  ml-4">
           <Form.Group>
             <Form.Row>
-              <Form.Label column htmlFor="Departure">
+              <Primarystyle column htmlFor="Departure">
                 Departure :
-              </Form.Label>
+              </Primarystyle>
               <Form.Control
                 className="xl"
                 as="select"
@@ -48,9 +66,9 @@ const Home = () => {
             </Form.Row>
             <br />
             <Form.Row>
-              <Form.Label column htmlFor="arrival">
+              <Primarystyle column htmlFor="arrival">
                 Arrival :
-              </Form.Label>
+              </Primarystyle>
 
               <Form.Control as="select" onChange={handleChangeArrival}>
                 {cities.map((city) => {
@@ -61,8 +79,8 @@ const Home = () => {
             <br />
             <Form.Row>
               <Col>
-                <Form.Label>Date</Form.Label>
-              <br />
+                <Primarystyle>Date</Primarystyle>
+                <br />
                 <DatePicker
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
@@ -79,7 +97,7 @@ const Home = () => {
               <Button
                 variant="info"
                 style={{
-                  backgroundColor: "black",
+                  backgroundColor: "#cd5334",
                   marginTop: "25px",
                   marginLeft: "100px",
                 }}
