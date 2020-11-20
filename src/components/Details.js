@@ -11,6 +11,7 @@ import { BsArrowsExpand } from "react-icons/bs";
 const NewContainer = styled(Container)`
   background-image: linear-gradient(rgba(0, 26, 26, 0.9), rgba(0, 26, 26, 0.8)),
     url(${mapViking3});
+  height: 90vh;
 `;
 
 const Primarystyle = styled.p`
@@ -29,6 +30,7 @@ const Title = styled.h1`
   font-family: Skranji;
   color: #cd5334;
   text-shadow: 1px 1px 2px white;
+  margin: 20px;
 `;
 
 const Details = () => {
@@ -40,7 +42,7 @@ const Details = () => {
   const lng = 17.8081;
   const params = "waveHeight,swellHeight,windSpeed,cloudCover";
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetch(
       `https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`,
       {
@@ -87,10 +89,10 @@ const Details = () => {
         setCloudCoverage((prev) => (prev = data.cloudCover.sg));
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, []);*/
 
   return (
-    <NewContainer>
+    <NewContainer fluid>
       <Row className="justify-content-center">
         <Col className="text-center">
           <Title>DETAILS</Title>
@@ -98,7 +100,13 @@ const Details = () => {
       </Row>
       <Row>
         <Col>
-          <h2 style={{ color: "#1f7a8c", textShadow: "1px 1px 2px white" }}>
+          <h2
+            style={{
+              color: "#1f7a8c",
+              textShadow: "1px 1px 2px white",
+              marginBottom: "10px",
+            }}
+          >
             PRINCIPAL
           </h2>
         </Col>
@@ -110,15 +118,7 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          {waveHeight > 20 ? (
-            <ProgressBar
-              variant="info"
-              style={{ marginTop: "5px" }}
-              now={waveHeight}
-            />
-          ) : (
-            <p>Loading...</p>
-          )}
+          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={30} />
         </Col>
       </Row>
       <Row>
@@ -128,7 +128,7 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={40} />
+          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={70} />
         </Col>
       </Row>
       <Row>
@@ -138,11 +138,7 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          <ProgressBar
-            variant="info"
-            style={{ marginTop: "5px" }}
-            now={windSpeed}
-          />
+          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={100} />
         </Col>
       </Row>
       <Row>
@@ -152,21 +148,24 @@ const Details = () => {
           </Primarystyle>
         </Col>
         <Col md="11" xs="8">
-          <ProgressBar
-            variant="info"
-            style={{ marginTop: "5px" }}
-            now={cloudCoverage}
-          />
+          <ProgressBar variant="info" style={{ marginTop: "5px" }} now={30} />
         </Col>
       </Row>
       <Row>
         <Col className="text-center">
-          <h4 style={{ color: "#1f7a8c", textShadow: "1px 1px 1px white" }}>
+          <h4
+            style={{
+              color: "#1f7a8c",
+              textShadow: "1px 1px 1px white",
+              marginBottom: "20px",
+              marginTop: "35px",
+            }}
+          >
             SECONDARY
           </h4>
         </Col>
       </Row>
-      <Row>
+      <Row style={{ marginBottom: "10px" }}>
         <Col xs="6" className="text-center">
           <Secondarystyle>water temp : 7°C</Secondarystyle>
         </Col>
