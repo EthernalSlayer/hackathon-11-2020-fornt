@@ -1,32 +1,44 @@
 import React from "react";
+import styled from "styled-components";
+
+import mapViking3 from "../mapviking3.png";
+
 import { Button, Container, Row, Col } from "react-bootstrap";
 import { WiDayCloudy } from "react-icons/wi";
 import { GiBigWave } from "react-icons/gi";
 import { FaWind } from "react-icons/fa";
 
+const NewContainer = styled(Container)`
+  background-image: linear-gradient(rgba(0, 26, 26, 0.9), rgba(0, 26, 26, 0.8)),
+    url(${mapViking3});
+`;
+
+const Title = styled.h1`
+  font-family: Skranji;
+  font-size: 1.4em;
+  color: #cd5334;
+  text-shadow: 1px 1px 2px white;
+  margin: 40px;
+`;
+
 const Score = () => {
+  const success = "green";
+  const danger = "red";
+  const warning = "orange";
+
   return (
-    <Container>
-      <Row>
-        <Col>
-          <h2
-            style={{
-              fontFamily: "Skranji",
-              marginTop: "15%",
-              marginBottom: "15%",
-              textAlign: "center",
-              color: "#2e282a",
-            }}
-          >
-            GOOD TIME FOR RAIDS
-          </h2>
+    <NewContainer>
+      <Row className="justify-content-center">
+        <Col className="text-center">
+          <Title>GOOD TIME FOR RAIDS</Title>
         </Col>
       </Row>
       <Row>
         <Col>
           <div
             style={{
-              backgroundColor: "#2e282a",
+              backgroundColor: "#1f7a8c",
+              border: `5px ${warning} solid`,
               width: "15em",
               height: "15em",
               borderRadius: "50%",
@@ -40,7 +52,7 @@ const Score = () => {
             <h3
               style={{
                 textAlign: "center",
-                color: " #d7dedc",
+                color: "#d7dedc",
                 verticalAlign: "middle",
                 display: "block",
                 marginLeft: "auto",
@@ -56,33 +68,28 @@ const Score = () => {
           </div>
         </Col>
       </Row>
-      <Row>
-        <Col>
+      <Row className="justify-content-center">
+        <Col xs={4} style={{ padding: 0 }} className="text-center">
           <FaWind
             style={{
-              display: "inline-flex",
               fontSize: "10vh",
-              color: "#053c5e",
-              marginLeft: "4%",
+              color: warning,
             }}
           />
         </Col>
-        <Col>
+        <Col xs={4} style={{ padding: 0 }} className="text-center">
           <WiDayCloudy
             style={{
-              display: "inline-flex",
               fontSize: "14vh",
-              color: "#053c5e",
+              color: warning,
             }}
           />
         </Col>
-        <Col>
+        <Col xs={4} style={{ padding: 0 }} className="text-center">
           <GiBigWave
             style={{
-              display: "inline-flex",
               fontSize: "10vh",
-              color: "#053c5e",
-              marginLeft: "10%",
+              color: warning,
             }}
           />
         </Col>
@@ -106,7 +113,7 @@ const Score = () => {
           </Button>
         </Col>
       </Row>
-    </Container>
+    </NewContainer>
   );
 };
 
